@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option csharp_namespace = "Service.Candles.Contracts";
+
+package com.swisschain.grpc.messages.candles;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service Candles {
+    rpc Get (CandlesGetRequest) returns (CandlesGetResponse);
+}
+
+message CandlesGetRequest {
+    string asset_pair_id = 1;
+    CandleType type = 2;
+    google.protobuf.Timestamp start_date = 3;
+    google.protobuf.Timestamp end_date = 4;
+}
+
+message CandlesGetResponse {
+    repeated Candle candles = 1;
+}
+
+message Candle {
+    google.protobuf.Timestamp time = 1;
+    CandleType type = 2;
+    string asset_pair_id = 3;
+    double open = 4;
+    double close = 5;
+    double high = 6;
+    double low = 7;
+}
+
+enum CandleType {
+    NONE = 0;
+    MINUTE = 1;
+    HOUR = 2;
+    DAY = 3;
+    MONTH = 4;
+}
