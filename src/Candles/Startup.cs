@@ -53,6 +53,7 @@ namespace Candles
 
         protected override void ConfigureExt(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.ApplicationServices.GetRequiredService<AutoMapper.IConfigurationProvider>()
