@@ -21,6 +21,7 @@ namespace Candles
         public Startup(IConfiguration configuration)
             : base(configuration)
         {
+            AddJwtAuth(Config.Jwt.Secret, "exchange.swisschain.io");
         }
 
         protected override void RegisterEndpoints(IEndpointRouteBuilder endpoints)
@@ -52,6 +53,8 @@ namespace Candles
 
         protected override void ConfigureExt(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseAuthorization();
+
             app.ApplicationServices.GetRequiredService<AutoMapper.IConfigurationProvider>()
                 .AssertConfigurationIsValid();
 

@@ -18,7 +18,7 @@
     <PackageReference Include="Swisschain.LykkeLog.Adapter" Version="1.0.0" />
     <PackageReference Include="Swisschain.MatchingEngine.Client" Version="0.0.7" />
     <PackageReference Include="Swisschain.RabbitMqBroker" Version="8.2.0" />
-    <PackageReference Include="Swisschain.Sdk.Server" Version="2.1.0" />    
+    <PackageReference Include="Swisschain.Sdk.Server" Version="4.1.0" />    
   </ItemGroup>
 
   <ItemGroup>
