@@ -5,6 +5,7 @@ using AutoMapper;
 using Candles.Client.Models.Candles;
 using Candles.Domain.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Candles.WebApi
@@ -24,9 +25,14 @@ namespace Candles.WebApi
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(CandleModel[]), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAsync(string assetPairId, CandleType candleType, DateTime startDate,
             DateTime endDate)
         {
+            if (string.IsNullOrWhiteSpace(assetPairId))
+                return NotFound();
+
             var candles = await _candlesService.GetAsync(assetPairId,
                 Enum.Parse<Domain.Entities.CandleType>(candleType.ToString()), startDate, endDate);
 
