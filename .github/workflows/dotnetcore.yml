@@ -24,7 +24,7 @@ jobs:
     - name: Publish to Registry
       uses: SC-Poc/Publish-Docker-Github-Action@master
       with:
-        name: swisschains/service-candles
+        name: swisschains/antares-service-candles
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: ./publish

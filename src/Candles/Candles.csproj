@@ -5,6 +5,7 @@
     <AssemblyName>Candles</AssemblyName>
     <RootNamespace>Candles</RootNamespace>
     <UserSecretsId>c03a09df-ed6a-4368-b083-689986314812</UserSecretsId>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
